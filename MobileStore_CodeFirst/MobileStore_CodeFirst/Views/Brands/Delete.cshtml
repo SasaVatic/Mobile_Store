@@ -1,0 +1,39 @@
+﻿@model MobileStore_CodeFirst.Models.Brand
+
+@{
+    ViewBag.Title = "Brands Delete";
+}
+
+<div class="container py-4">
+    <h2>Delete Brand</h2>
+    <hr />
+    <div>
+
+        <h3>Are you sure you want to delete brand @Model.BrandName?</h3>
+        <p class="lead text-danger font-weight-normal">Warning: Deleting brand @Model.BrandName will delete all  @Model.BrandName models!</p>
+        <dl class="dl-horizontal py-5">
+            <dt>
+                @Html.DisplayNameFor(model => model.BrandName)
+            </dt>
+
+            <dd class="mt-3">
+                @Html.DisplayFor(model => model.BrandName)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions row">
+                <div class="p-3">
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                </div>                
+                <div class="p-3">
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary"})
+                </div>
+            </div>
+        }
+    </div>
+</div>

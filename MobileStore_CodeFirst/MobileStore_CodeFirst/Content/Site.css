@@ -1,0 +1,59 @@
+﻿body, html {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+/* Set padding to keep content from hitting the edges */
+/*.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}*/
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+/* Home Page */
+
+/*_______________Header_______________*/
+
+#home {
+    background: url('img/Background_IndexHome.jpg');
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 75%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+}
+
+
+/*_______________Main_______________*/
+
+#mobile-background {
+    background-image: url('img/erickson.jpg');
+    clip-path: polygon(0 25%, 100% 0%, 100% 75%, 0% 100%);
+    background-attachment: fixed;
+    background-position: center center center left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+}
+
+.img-links {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 75%);
+}

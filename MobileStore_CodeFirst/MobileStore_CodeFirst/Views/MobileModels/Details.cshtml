@@ -1,0 +1,82 @@
+﻿@model MobileStore_CodeFirst.Models.MobileModel
+
+@{
+    ViewBag.Title = "Models Details";
+}
+
+<div class="container py-4">
+    <h2>Model Details</h2>
+    <hr />
+
+    <div class="py-5">
+        <dl class="dl-horizontal row">
+            <div class="col">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Brand.BrandName)
+                </dt>
+
+                <dd class="mt-3">
+                    @Html.DisplayFor(model => model.Brand.BrandName)
+                </dd>
+            </div>
+
+            <div class="col">
+                <dt>
+                    @Html.DisplayNameFor(model => model.OPSystem.OpSystemName)
+                </dt>
+
+                <dd class="mt-3">
+                    @Html.DisplayFor(model => model.OPSystem.OpSystemName)
+                </dd>
+            </div>
+
+            <div class="col">
+                <dt>
+                    @Html.DisplayNameFor(model => model.ModelName)
+                </dt>
+
+                <dd class="mt-3">
+                    @Html.DisplayFor(model => model.ModelName)
+                </dd>
+            </div>
+
+            <div class="col">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+
+                <dd class="mt-3">
+                    @Html.DisplayFor(model => model.Price)
+                </dd>
+            </div>
+
+            <div class="col">
+                <dt>
+                    @Html.DisplayNameFor(model => model.RAM)
+                </dt>
+
+                <dd class="mt-3">
+                    @Html.DisplayFor(model => model.RAM)
+                </dd>
+            </div>
+
+            <div class="col">
+                <dt>
+                    @Html.DisplayNameFor(model => model.StorageCapacity)
+                </dt>
+
+                <dd class="mt-3">
+                    @Html.DisplayFor(model => model.StorageCapacity)
+                </dd>
+            </div>
+        </dl>
+    </div>
+    <div class="row">
+        <div class="p-3">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.MobileModelId }, new { @class = "btn btn-warning" })
+        </div>
+        <div class="p-3">
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+        </div>
+    </div>
+</div>

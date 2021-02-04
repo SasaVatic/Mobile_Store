@@ -1,0 +1,46 @@
+﻿@model IEnumerable<MobileStore_CodeFirst.Models.OPSystem>
+
+@{
+    ViewBag.Title = "Operating Systems";
+}
+
+<div class="container py-4">
+    @if (TempData["OPSystemStatusMessage"] != null)
+    {
+        <h1 class="text-primary font-weight-bold">@TempData["OPSystemStatusMessage"]</h1>
+    }
+
+    <h2>Operating Systems</h2>
+    <hr />
+    <p class="float-right">
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+    </p>
+    <table class="table table-bordered">
+        <tr class="text-center">
+            <th>
+                @Html.DisplayNameFor(model => model.OpSystemName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>Actions</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr class="text-center">
+                <td style="vertical-align:middle">
+                    @Html.DisplayFor(modelItem => item.OpSystemName)
+                </td>
+                <td style="vertical-align:middle">
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td class="text-right">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.OPSystemId }, new { @class = "btn btn-warning m-2" })
+                    @Html.ActionLink("Details", "Details", new { id = item.OPSystemId }, new { @class = "btn btn-info m-2" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.OPSystemId }, new { @class = "btn btn-danger" })
+            </tr>
+        }
+
+    </table>
+</div>

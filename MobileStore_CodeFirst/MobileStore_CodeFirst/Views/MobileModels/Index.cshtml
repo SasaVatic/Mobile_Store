@@ -1,0 +1,80 @@
+﻿@model IEnumerable<MobileStore_CodeFirst.Models.MobileModel>
+
+@{
+    ViewBag.Title = "Models";
+}
+
+<div class="container py-4">
+    @if (TempData["ModelStatusMessage"] != null)
+    {
+        <h1 class="text-primary font-weight-bold">@TempData["ModelStatusMessage"]</h1>
+    }
+    <h2>Models</h2>
+    <hr />
+    <p class="float-right">
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+    </p>
+    <table class="table table-bordered">
+        <tr class="text-center">
+            <th>
+                @Html.DisplayNameFor(model => model.Brand.BrandName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OPSystem.OpSystemName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModelName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RAM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StorageCapacity)
+            </th>
+            <th>Actions</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr class="text-center">
+                <td style="vertical-align:middle">
+                    @Html.DisplayFor(modelItem => item.Brand.BrandName)
+                </td>
+                <td style="vertical-align:middle">
+                    @Html.DisplayFor(modelItem => item.OPSystem.OpSystemName)
+                </td>
+                <td style="vertical-align:middle">
+                    @Html.DisplayFor(modelItem => item.ModelName)
+                </td>
+                <td style="vertical-align:middle">
+                    @if (item.Price > 0)
+                    {
+                        <p class="m-0">$ @Html.DisplayFor(modelItem => item.Price)</p>
+                    }
+                    else
+                    {
+                        <p class="m-0">Out of stock</p>
+                    }
+                </td>
+                <td style="vertical-align:middle">
+                    @if (item.RAM > 0)
+                    {
+                        <p class="m-0">@Html.DisplayFor(modelItem => item.RAM) GB</p>
+                    }
+                </td>
+                <td style="vertical-align:middle">
+                    <p class="m-0">@Html.DisplayFor(modelItem => item.StorageCapacity) GB</p>
+                </td>
+                <td class="text-right">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MobileModelId }, new { @class="btn btn-warning m-2" })
+                    @Html.ActionLink("Details", "Details", new { id = item.MobileModelId }, new { @class = "btn btn-info m-2" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MobileModelId }, new { @class = "btn btn-danger m-2" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

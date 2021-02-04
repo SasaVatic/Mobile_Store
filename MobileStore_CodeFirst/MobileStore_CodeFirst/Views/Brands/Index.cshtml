@@ -1,0 +1,41 @@
+﻿@model IEnumerable<MobileStore_CodeFirst.Models.Brand>
+
+@{
+    ViewBag.Title = "Brands";
+}
+
+<div class="container py-4">
+    @if (TempData["BrandStatusMessage"] != null)
+    {
+        <h1 class="text-primary font-weight-bold">@TempData["BrandStatusMessage"]</h1>
+    }
+
+    <h2>Brands</h2>
+    <hr />
+    <p class="float-right">
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+    </p>
+    <table class="table table-bordered">
+        <tr class="text-center">
+            <th>
+                @Html.DisplayNameFor(model => model.BrandName)
+            </th>
+            <th>Actions</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center" style="vertical-align: middle">
+                    @Html.DisplayFor(modelItem => item.BrandName)
+                </td>
+                <td class="text-right">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.BrandId }, new { @class = "btn btn-warning m-2" })
+                    @Html.ActionLink("Details", "Details", new { id = item.BrandId }, new { @class = "btn btn-info m-2" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.BrandId }, new { @class = "btn btn-danger m-2" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
